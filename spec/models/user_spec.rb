@@ -12,4 +12,8 @@ describe User do
     end
   end
 
+  describe '#encrypt_password' do
+
+  end
+
 end
