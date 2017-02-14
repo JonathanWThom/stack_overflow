@@ -1,1 +1,8 @@
 <h3>Welcome to Stack Overflow</h3>
+
+<% if current_user %>
+  <%= link_to "Log Out", log_out_path %>
+<% else %>
+  <%= link_to "Create an Account", new_user_path %>
+  <%= link_to "Log In", log_in_path %>
+<% end %>
