@@ -6,6 +6,7 @@ describe User do
   it { should validate_presence_of :password }
   it { should validate_confirmation_of :password }
   it { should have_many :questions }
+  it { should have_many :responses }
 
   describe '.authenticate' do
     it 'will authenticate and log in a user' do
