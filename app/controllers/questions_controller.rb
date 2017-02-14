@@ -22,6 +22,11 @@ class QuestionsController < ApplicationController
       @question.vote(params[:vote])
       redirect_to question_path(@question)
     end
+    if params[:response_vote]
+      @response = Response.find(params[:response])
+      @response.response_vote(params[:response_vote])
+      redirect_to question_path(@question)
+    end
   end
 
 private

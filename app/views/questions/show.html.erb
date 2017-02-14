@@ -13,4 +13,6 @@
 <% end %>
 <% @question.responses.each do |r| %>
   <li><%=  r.content %>--<%=  r.user.name %></li>
+  <%= link_to 'Upvote', :reponse_vote => 1, :response => r.id %>
+  <%= link_to 'Downvote', :response_vote => -1, :response => r.id %>
 <% end %>
