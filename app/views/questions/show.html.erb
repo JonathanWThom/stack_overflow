@@ -1,5 +1,9 @@
 <h4><%= @question.content %></h4>
 
+<%= link_to 'Upvote', :vote => 1 %>
+<%= link_to 'Downvote', :vote => -1 %>
+
+
 <% if current_user %>
   <%= form_for [@question, Response.new] do |f| %>
     <%= f.label :content %>

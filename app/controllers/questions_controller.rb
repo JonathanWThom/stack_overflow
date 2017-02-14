@@ -18,6 +18,10 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    if params[:vote]
+      @question.vote(params[:vote])
+      redirect_to question_path(@question)
+    end
   end
 
 private
