@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <%= current_user.name %>
+    <% end %>
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
     <%= yield %>
   </body>
 </html>
