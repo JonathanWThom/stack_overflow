@@ -27,6 +27,16 @@ class QuestionsController < ApplicationController
       @question.disliked_by current_user
       redirect_to question_path(@question)
     end
+    @question = Question.find(params[:id])
+    if params[:response_vote] == '1'
+      @response = Response.find(params[:response])
+      @response.liked_by current_user
+
+    end
+    if params[:response_vote] == '-1'
+      @response = Response.find(params[:response])
+      @response.disliked_by current_user
+    end
   end
 
 private
