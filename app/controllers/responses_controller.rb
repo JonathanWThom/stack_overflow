@@ -5,7 +5,7 @@ class ResponsesController < ApplicationController
   def create
     @question = Question.find(params[:question_id])
     @response = Response.new(:content => response_params[:content], :user_id => current_user.id, :question_id => params[:question_id])
-    if @response.save()
+    if @response.save
       redirect_to question_path(@question)
     else
       redirect_to question_path(@question)

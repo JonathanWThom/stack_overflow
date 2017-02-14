@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates :password, :presence => true
   has_many :questions
   has_many :responses
+  acts_as_voter
 
   attr_accessor :password
   validates_confirmation_of :password

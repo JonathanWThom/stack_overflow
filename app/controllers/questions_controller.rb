@@ -18,13 +18,13 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    if params[:vote]
-      @question.vote(params[:vote])
+    if params[:vote] == '1'
+      @question.liked_by current_user
       redirect_to question_path(@question)
+
     end
-    if params[:response_vote]
-      @response = Response.find(params[:response])
-      @response.response_vote(params[:response_vote])
+    if params[:vote] == '-1'
+      @question.disliked_by current_user
       redirect_to question_path(@question)
     end
   end
