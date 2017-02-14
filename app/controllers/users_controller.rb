@@ -13,6 +13,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    if !current_user.admin
+      redirect_to '/'
+    end
+    @user = User.find(params[:id])
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    if current_user.admin
+      redirect_to admin_index_path
+    else
+      session[:user_id] = nil
+      redirect_to '/'
+    end
+  end
+
 private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

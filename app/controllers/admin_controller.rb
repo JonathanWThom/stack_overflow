@@ -3,5 +3,6 @@ class AdminController < ApplicationController
     if !current_user.admin
       redirect_to '/'
     end
+    @users = User.all
   end
 end

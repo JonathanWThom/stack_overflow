@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   get '/log-in' => 'sessions#new'
   post '/log-in' => 'sessions#create'
   get '/log-out' => 'sessions#destroy', as: :log_out
-  resources :users
+  resources :users, :except => [:show]
   resources :questions do
     resources :responses
   end
 
-  resources :admin
+  resources :admin do
+    resources :users
+  end
 end
