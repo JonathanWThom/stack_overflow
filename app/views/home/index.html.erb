@@ -1,5 +1,4 @@
 <h3>Welcome to Stack Overflow</h3>
-
 <ul>
   <% @questions.each do |question| %>
     <li><%= link_to question.content, question_path(question) %></li>

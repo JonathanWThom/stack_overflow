@@ -1,9 +1,11 @@
 <h4><%= @question.content %></h4>
 
-<%= form_for [@question, Response.new] do |f| %>
-  <%= f.label :content %>
-  <%= f.text_field :content %>
-  <%= f.submit "Submit"%>
+<% if current_user %>
+  <%= form_for [@question, Response.new] do |f| %>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    <%= f.submit "Submit"%>
+  <% end %>
 <% end %>
 <% @question.responses.each do |r| %>
   <li><%=  r.content %>--<%=  r.user.name %></li>

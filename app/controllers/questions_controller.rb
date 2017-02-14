@@ -1,5 +1,8 @@
 class QuestionsController < ApplicationController
   def new
+    if current_user == nil
+      redirect_to '/'
+    end
   end
 
   def create
