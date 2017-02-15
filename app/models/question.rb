@@ -4,9 +4,4 @@ class Question < ActiveRecord::Base
   has_many :responses
   acts_as_votable
 
-  def vote(amount)
-    current_votes = self.votes
-    new_votes = self.votes + amount.to_i
-    self.update(:votes => new_votes)
-  end
 end
