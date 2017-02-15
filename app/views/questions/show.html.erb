@@ -16,7 +16,7 @@
 <hr>
 <% @question.responses.each do |r| %>
   <li><%=  r.content %>--<%=  r.user.name %></li>
-  <%= link_to 'Upvote', :response_vote => 1, :response => r.id %>
-  <%= link_to 'Downvote', :response_vote => -1, :response => r.id %>
+  <%= link_to 'Upvote Response', :response_vote => 1, :response => r.id %>
+  <%= link_to 'Downvote Response', :response_vote => -1, :response => r.id %>
   <%= r.get_likes.size - r.get_dislikes.size %>
 <% end %>
